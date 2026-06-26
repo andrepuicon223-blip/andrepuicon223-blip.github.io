@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Vamos por Makis?</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e6;
+            text-align: center;
+        }
+        h1 {
+            color: #d32f2f;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .contenedor-botones {
+            position: relative;
+            width: 100%;
+            height: 100px;
+        }
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        #btnSi {
+            background-color: #4caf50;
+            color: white;
+        }
+        #btnSi:hover {
+            transform: scale(1.1);
+        }
+        #btnNo {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            left: calc(50% + 20px);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Aceptas ir a comer makis conmigo? 🍣🥢</h1>
+
+    <div class="contenedor-botones">
+        <!-- El botón SÍ redirige a una confirmación -->
+        <button id="btnSi" onclick="aceptarInvitacion()">¡SÍ, de todas maneras!</button>
+        <!-- El botón NO se mueve al intentar tocarlo -->
+        <button id="btnNo" onmouseover="moverBotonNo()" onclick="moverBotonNo()">No</button>
+    </div>
+
+    <script>
+        function moverBotonNo() {
+            const btnNo = document.getElementById('btnNo');
+            
+            // Genera posiciones aleatorias dentro de la pantalla
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
+            
+            // Cambia la posición del botón de manera absoluta
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px';
+        }
+
+        function aceptarInvitacion() {
+            alert('¡Sabía que dirías que sí! 🥳 nos vamos por makis. 🍣💥');
+        }
+    </script>
+
+</body>
+</html>
